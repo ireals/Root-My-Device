@@ -203,7 +203,7 @@ class PayloadRepository(private val context: Context) {
         }
 
     companion object {
-        private const val PAYLOAD_REPOSITORY = "Witaqua-tools/Root-My-Device-Payloads"
+        private const val PAYLOAD_REPOSITORY = "ireals/Root-My-Device-Payloads"
         private const val LATEST_RELEASE_API_URL =
             "https://api.github.com/repos/$PAYLOAD_REPOSITORY/releases/latest"
         private const val RELEASE_DOWNLOAD_REPOSITORY =
