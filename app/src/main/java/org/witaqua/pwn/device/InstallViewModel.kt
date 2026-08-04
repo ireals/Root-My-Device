@@ -664,8 +664,11 @@ class InstallViewModel(application: Application) : AndroidViewModel(application)
 
     companion object {
         private const val HISTORY_LIMIT = 20
-        private const val EXPLOIT_STALL_MILLIS = 90_000L
-        private const val EXPLOIT_TOTAL_MILLIS = 900_000L
+        // Phase 0 (docs/PLAN-untrusted_app-fix.md): a slow untrusted_app slide
+        // attempt needs longer before the watchdog treats it as stalled. The old
+        // 90 s / 900 s killed mid-write and left boot_id/nf_logger corrupted.
+        private const val EXPLOIT_STALL_MILLIS = 300_000L
+        private const val EXPLOIT_TOTAL_MILLIS = 1_800_000L
         private const val INSTALL_RECEIPT = "install_receipt"
         private const val RECEIPT_BOOT_TOKEN = "kernel_boot_id"
         private const val RECEIPT_VERIFIED = "verified"
