@@ -456,10 +456,10 @@ class InstallViewModel(application: Application) : AndroidViewModel(application)
                 }
                 val now = SystemClock.elapsedRealtime()
                 require(now - lastProgressAt < EXPLOIT_STALL_MILLIS) {
-                    app.getString(R.string.error_exploit_stalled)
+                    app.getString(R.string.error_exploit_stalled, EXPLOIT_STALL_MILLIS / 1000)
                 }
                 require(now - startedAt < EXPLOIT_TOTAL_MILLIS) {
-                    app.getString(R.string.error_exploit_timeout)
+                    app.getString(R.string.error_exploit_timeout, EXPLOIT_TOTAL_MILLIS / 60000)
                 }
                 delay(LOG_POLL_INTERVAL)
             }
